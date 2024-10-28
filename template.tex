@@ -1,0 +1,241 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+  a4paper,
+]{letter}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Tax Invoice},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+% LaTeX Simple Invoice Template
+% By Amy Fare | amyfare.ca
+% Source: amyfare.ca/files/simple_invoice_template.tex
+% License: Creative Commons Attribution (CC BY 4.0)
+% Feel free to distribute, modify, and use as you wish, but please keep this line and the 4 lines above unchanged.
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{hhline}
+\usepackage{array}
+
+\usepackage{bera,fontawesome}
+\usepackage[charter]{mathdesign}
+\usepackage[lf,t]{FiraSans}
+\usepackage[scale=0.9]{sourcecodepro}
+
+\hypersetup{
+    urlcolor=blue
+}
+
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{advdate}
+
+
+\newcommand{\Sum}[2]{\the\numexpr #1 + #2 \relax \\}\title{Tax Invoice}
+\author{}
+\date{October 28, 2024}
+
+\begin{document}
+\thispagestyle{empty}
+
+% Header, for company, invoice info
+\begin{tabularx}{\textwidth}{l X l}
+   \hspace{-8pt} \multirow{5}{*}{
+    } & \textbf{Marie's Physics
+Consulting} & \hskip12pt\multirow{5}{*}{\begin{tabular}{r}\footnotesize\bf Invoice \\[-0.8ex] \footnotesize 000001 \\[-0.4ex] \footnotesize\bf Date \\[-0.8ex] \footnotesize {October
+28, 2024} \\[-0.4ex]
+    \footnotesize\bf Due Date \\[-0.8ex] \footnotesize
+    \AdvanceDate[10]\today \\
+    \footnotesize\bf Payment Terms \\[-0.8ex] \footnotesize 
+                10
+         
+                days
+         \\ [-0.4ex]
+     \end{tabular}}\hspace{-6pt} \\
+   & ABN: 0000-0000-0000-0000 & \\
+   & https://www.marie.curie.com & \\
+   & marie.curie@gmail.com & \\
+\end{tabularx} 
+
+\vspace{1 cm}
+
+\textbf{Bill to}: 
+
+Isaac Newton \\
+Hypatia \\
+University of Alexandria \\
+Egypt \\
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{17em}|>{\raggedleft\arraybackslash}p{5em}|>{\raggedleft\arraybackslash}p{5em}|>{\raggedleft\arraybackslash}p{5em}|>{\raggedleft\arraybackslash}p{7em}}
+\hline
+\textbf{Service} & \textbf{Rate} & \textbf{Quantity} & \textbf{Discount} & \textbf{Payment Due}\\
+\hline
+Conference sponsorship & \$5,000.00 & 1 & \$0.00 & \$5,000.00\\
+\hline
+\end{tabular}
+
+Total due: \$5,000.00
+
+
+
+\vspace{1cm}
+
+\Large\textbf{Payment options}\normalsize
+
+\textbf{Direct Credit} \\
+BSB: 000-000 \\
+Account number: 12345678 \\
+
+\textbf{Paypal} \\
+marie.curie@gmail.com \\
+
+\end{document}

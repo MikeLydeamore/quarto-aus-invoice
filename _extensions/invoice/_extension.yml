@@ -21,3 +21,4 @@ contributes:
         - "before-title.tex"
         - "before-body.tex"
         - "after-body.tex"
+      title: Tax Invoice
