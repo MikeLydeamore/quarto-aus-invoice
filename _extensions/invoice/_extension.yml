@@ -1,0 +1,23 @@
+title: Invoice
+author: Michael J Lydeamore
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    pdf:
+      documentclass: letter
+      pdf-engine: pdflatex
+      date: today
+      date-format: "MMMM D, YYYY"
+      papersize: a4
+      fontsize: 11pt
+      geometry:
+        - "top=2cm"
+        - "bottom=2cm"
+        - "left=2cm"
+        - "right=2cm"
+      colorlinks: true
+      template-partials:
+        - "before-title.tex"
+        - "before-body.tex"
+        - "after-body.tex"

@@ -1,0 +1,34 @@
+\thispagestyle{empty}
+
+% Header, for company, invoice info
+\begin{tabularx}{\textwidth}{l X l}
+   \hspace{-8pt} \multirow{5}{*}{
+    $if(logo)$\includegraphics[height=1.98cm]{$logo$}$endif$} & \textbf{$company$} & \hskip12pt\multirow{5}{*}{\begin{tabular}{r}\footnotesize\bf Invoice \\[-0.8ex] \footnotesize $invoicenumber$ \\[-0.4ex] \footnotesize\bf Date \\[-0.8ex] \footnotesize {$date$} \\[-0.4ex]
+    \footnotesize\bf Due Date \\[-0.8ex] \footnotesize
+    \AdvanceDate[$terms$]\today \\
+    \footnotesize\bf Payment Terms \\[-0.8ex] \footnotesize 
+        $if(terms)$
+        $terms$
+        $endif$ 
+        $if(terms-unit)$
+        $terms-unit$
+        $else$
+        days
+        $endif$ \\ [-0.4ex]
+     \end{tabular}}\hspace{-6pt} \\
+   & $if(abn)$ABN: $abn$$endif$ & \\
+   & $if(web)$$web$$endif$ & \\
+   & $if(email)$$email$$endif$ & \\
+\end{tabularx} 
+
+\vspace{1 cm}
+
+\textbf{Bill to}: 
+
+$for(recipient)$
+$recipient.name$ \\
+$for(recipient.details)$
+$recipient.details$ \\
+$endfor$
+$endfor$
+

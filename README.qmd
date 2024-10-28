@@ -1,0 +1,55 @@
+---
+format: gfm
+---
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+```{r}
+#| include: false
+# Create pdf and png version of template
+library(tidyverse)
+library(quarto)
+library(magick)
+
+# Render template
+fs::file_copy("_extensions/invoice/logo.jpg", "logo.jpg", overwrite = TRUE)
+system("sed -i '' 's/^#logo/logo/' 'template.qmd'")
+quarto_render(input = "template.qmd")
+system("sed -i '' 's/^logo/#logo/' template.qmd")
+fs::file_delete(c("logo.jpg"))
+# Convert rendered PDF to PNG
+image_read_pdf("template.pdf", pages = 1) |>
+  image_montage(geometry = "x1000+25+35", tile = 1, bg = "grey92", shadow = TRUE) |>
+  image_convert(format = "png") |>
+  image_write("examples/template.png")
+# Move pdf to examples folder
+fs::file_move("template.pdf", "examples/template.pdf")
+```
+
+# Quarto Invoicing Template
+
+This is a Quarto template to help you generate invoices for your company. It is based on the standard Australian invoice template.
+
+## Creating a new invoice
+
+You can use this as a template to create an invoice.
+To do this, use the following command:
+
+```bash
+quarto use template MikeLydeamore/quarto-invoice
+```
+
+This will install the extension and create an example qmd file that you can use as a starting place for your letter.
+
+## Installation for existing document
+
+You may also use this format with an existing Quarto project or document.
+From the quarto project or document directory, run the following command to install this format:
+
+```bash
+quarto install extension MikeLydeamore/quarto-invoice
+```
+
+## Example
+
+[![](examples/template.png)](examples/template.pdf)

@@ -1,0 +1,29 @@
+% LaTeX Simple Invoice Template
+% By Amy Fare | amyfare.ca
+% Source: amyfare.ca/files/simple_invoice_template.tex
+% License: Creative Commons Attribution (CC BY 4.0)
+% Feel free to distribute, modify, and use as you wish, but please keep this line and the 4 lines above unchanged.
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{hhline}
+\usepackage{array}
+
+\usepackage{bera,fontawesome}
+\usepackage[charter]{mathdesign}
+\usepackage[lf,t]{FiraSans}
+\usepackage[scale=0.9]{sourcecodepro}
+
+\hypersetup{
+    urlcolor=blue
+}
+
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{advdate}
+
+
+\newcommand{\Sum}[2]{\the\numexpr #1 + #2 \relax \\}

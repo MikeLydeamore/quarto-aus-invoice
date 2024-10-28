@@ -1,0 +1,49 @@
+---
+format: invoice-pdf
+company: Marie's Physics Consulting
+abn: 0000-0000-0000-0000
+web: "https://www.marie.curie.com"
+email: marie.curie@gmail.com
+#logo: logo.jpg
+invoicenumber: "000001"
+date: today
+payment:
+    - name: Direct Credit
+      details:
+        - "BSB: 000-000"
+        - "Account number: 12345678"
+    - name: Paypal
+      details: marie.curie@gmail.com
+terms: 10
+recipient:
+    - name: Isaac Newton
+      details:
+        - Hypatia
+        - University of Alexandria
+        - Egypt
+---
+
+\renewcommand{\arraystretch}{1.5}
+```{r}
+#| echo: false
+invoice <- data.frame(
+    service = "Conference sponsorship",
+    rate = formattable::currency(5000),
+    quantity = 1,
+    discount = formattable::currency(0)
+)
+
+invoice$payment_due <- formattable::currency(invoice$rate * invoice$quantity - invoice$discount)
+
+knitr::kable(
+    invoice,
+    col.names = c("Service", "Rate", "Quantity", "Discount", "Payment Due")
+) |>
+    kableExtra::column_spec(1, width = "17em") |>
+    kableExtra::column_spec(2:4, width = "5em") |>
+    kableExtra::column_spec(5, width = "7em") |>
+    kableExtra::row_spec(0, bold = TRUE)
+```
+
+Total due: `r formattable::currency(sum(invoice$payment_due))`
+

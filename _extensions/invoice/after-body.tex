@@ -1,0 +1,13 @@
+\vspace{1cm}
+
+\Large\textbf{Payment options}\normalsize
+
+$if(payment)$
+$for(payment)$
+\textbf{$payment.name$} \\
+$for(payment.details)$
+$payment.details$ \\
+$endfor$
+
+$endfor$
+$endif$
